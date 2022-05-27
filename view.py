@@ -44,7 +44,21 @@ class Garden(MDApp):
         for i in range(len(lst)):
             if lst[i].find('===') == -1 and lst[i].find("----") == -1:
                 lst_new.append(lst[i])
-        # print(lst_new)
+
+        self.root.ids.garden_screen.ids.tree_1.background_normal = 'lol.png'
+        self.root.ids.garden_screen.ids.tree_1.background_color = 1, 1, 1, 1
+
+        self.root.ids.garden_screen.ids.tree_2.background_normal = 'lol.png'
+        self.root.ids.garden_screen.ids.tree_2.background_color = 1, 1, 1, 1
+
+        self.root.ids.garden_screen.ids.tree_3.background_normal = 'lol.png'
+        self.root.ids.garden_screen.ids.tree_3.background_color = 1, 1, 1, 1
+
+        self.root.ids.garden_screen.ids.tree_4.background_normal = 'lol.png'
+        self.root.ids.garden_screen.ids.tree_4.background_color = 1, 1, 1, 1
+
+        self.root.ids.garden_screen.ids.tree_5.background_normal = 'lol.png'
+        self.root.ids.garden_screen.ids.tree_5.background_color = 1, 1, 1, 1
 
         for i in range(len(lst_new)):
             if lst_new[i].find('Garden bed') != -1:
