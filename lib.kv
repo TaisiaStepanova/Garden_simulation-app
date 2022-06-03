@@ -78,7 +78,7 @@ ScreenManager:
             padding: 10, 10, 10, 60
             canvas:
                 Rectangle:
-                    source: 'grass.png'
+                    source: 'image/grass.png'
                     size: self.size
                     pos: self.pos
 
@@ -433,33 +433,170 @@ ScreenManager:
         GridLayout_3:
             id: gl_2
             cols: 5
-            size_hint: 1, .4
+            size_hint: 1, .5
             padding: 10, 10, 10, 60
             canvas:
                 Rectangle:
-                    source: 'grass.png'
+                    source: 'image/grass.png'
                     size: self.size
                     pos: self.pos
 
-            Button:
-                id: tree_1
-                background_normal: 'lol.png'
+            BoxLayout:
+                id: bx_1
+                orientation: "vertical"
+                spacing: 5
 
-            Button:
-                id: tree_2
-                background_normal: 'lol.png'
+                BoxLayout:
+                    orientation: "horizontal"
+                    id: box
+                    size_hint: 1, .1
 
-            Button:
-                id: tree_3
-                background_normal: 'lol.png'
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_har_1
 
-            Button:
-                id: tree_4
-                background_normal: 'lol.png'
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_bug_1
 
-            Button:
-                id: tree_5
-                background_normal: 'lol.png'
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_ill_1
+
+                Image:
+                    source: 'image/lol.png'
+                    size: self.texture_size
+                    id: tree_1
+
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 5
+                id: bx_2
+
+                BoxLayout:
+                    orientation: "horizontal"
+                    id: box
+                    size_hint: 1, .1
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_har_2
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_bug_2
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_ill_2
+
+                Image:
+                    source: 'image/lol.png'
+                    size: self.texture_size
+                    id: tree_2
+
+
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 5
+                id: bx_3
+
+
+                BoxLayout:
+                    orientation: "horizontal"
+                    id: box
+                    size_hint: 1, .1
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_har_3
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_bug_3
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_ill_3
+
+                Image:
+                    source: 'image/lol.png'
+                    size: self.texture_size
+                    id: tree_3
+
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 5
+                id: bx_4
+
+                BoxLayout:
+                    orientation: "horizontal"
+                    id: box
+                    size_hint: 1, .1
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_har_4
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_bug_4
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_ill_4
+
+                Image:
+                    source: 'image/lol.png'
+                    size: self.texture_size
+                    id: tree_4
+
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 5
+                id: bx_5
+
+                BoxLayout:
+                    orientation: "horizontal"
+                    id: box
+                    size_hint: 1, .2
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        id: box
+                        size_hint: 1, .1
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_har_5
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_bug_5
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: tree_ill_5
+
+                Image:
+                    source: 'image/lol.png'
+                    size: self.texture_size
+                    id: tree_5
 
 
         BoxLayout:
@@ -473,42 +610,401 @@ ScreenManager:
                 rows: 2
                 cols: 6
 
-                Cell_1:
-                    id: cell_1
-                    text: ''
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
 
-                Cell_1:
-                    id: cell_2
 
-                Cell_1:
-                    id: cell_3
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
 
-                Cell_1:
-                    id: cell_4
+                        BoxLayout:
+                            orientation: "horizontal"
 
-                Cell_1:
-                    id: cell_5
 
-                Cell_1:
-                    id: cell_6
 
-                Cell_1:
-                    id: cell_7
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_1_w
 
-                Cell_1:
-                    id: cell_8
+                            Label:
+                                text: ""
+                                id: cell_1_water
 
-                Cell_1:
-                    id: cell_9
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_1_f
 
-                Cell_1:
-                    id: cell_10
+                            Label:
+                                text: ""
+                                id: cell_1_fer
 
-                Cell_1:
-                    id: cell_11
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
 
-                Cell_1:
-                    id: cell_12
+                        BoxLayout:
+                            orientation: "horizontal"
+                            size_hint: 1, .1
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_1_bug
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_1_ill
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_1_weed
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_1_har
+
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: cell_1
+
+
+
+
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
+
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+
+
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_2_w
+
+                            Label:
+                                text: ""
+                                id: cell_2_water
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_2_f
+
+                            Label:
+                                text: ""
+                                id: cell_2_fer
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+                            size_hint: 1, .1
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_2_bug
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_2_ill
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_2_weed
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_2_har
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: cell_2
+
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
+
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+
+
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_3_w
+
+                            Label:
+                                text: ""
+                                id: cell_3_water
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_3_f
+
+                            Label:
+                                text: ""
+                                id: cell_3_fer
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+                            size_hint: 1, .1
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_3_bug
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_3_ill
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_3_weed
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_3_har
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: cell_3
+
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
+
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+
+
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_4_w
+
+                            Label:
+                                text: ""
+                                id: cell_4_water
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_4_f
+
+                            Label:
+                                text: ""
+                                id: cell_4_fer
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+                            size_hint: 1, .1
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_4_bug
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_4_ill
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_4_weed
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_4_har
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: cell_4
+
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
+
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+
+
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_5_w
+
+                            Label:
+                                text: ""
+                                id: cell_5_water
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_5_f
+
+                            Label:
+                                text: ""
+                                id: cell_5_fer
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+                            size_hint: 1, .1
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_5_bug
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_5_ill
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_5_weed
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_5_har
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: cell_5
+
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
+
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+
+
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_6_w
+
+                            Label:
+                                text: ""
+                                id: cell_6_water
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_6_f
+
+                            Label:
+                                text: ""
+                                id: cell_6_fer
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: 1, .1
+
+                        BoxLayout:
+                            orientation: "horizontal"
+                            size_hint: 1, .1
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_6_bug
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_6_ill
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_6_weed
+
+                            Image:
+                                source: 'image/lol.png'
+                                size: self.texture_size
+                                id: cell_6_har
+
+                    Image:
+                        source: 'image/lol.png'
+                        size: self.texture_size
+                        id: cell_6
+
+
 
 
         RoundedButton:
@@ -547,7 +1043,7 @@ ScreenManager:
         Color:
             rgba: 0.27, 0.89, 0.90, 1
         Rectangle:
-            size: 1000, 300
+            size: 2000, 900
             pos: 0, 550
 
 

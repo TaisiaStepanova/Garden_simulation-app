@@ -4,9 +4,10 @@ from kivymd.app import MDApp
 from kivy.config import Config
 from kivy.core.window import Window
 
-Config.set("graphics", "resizable", "0")
-Config.set("graphics", "width", "1000")
-Config.set("graphics", "height", "700")
+Config.set("graphics", "resizable", "1")
+Config.set("graphics", "width", "1200")
+Config.set("graphics", "height", "900")
+
 
 Window.clearcolor = (.61, .87, .95, 1)
 
@@ -38,633 +39,65 @@ class Garden(MDApp):
         self.root.ids.main_screen.ids.day.title = "День: " + str(self.model.day())
 
     def show_data(self):
-        st = self.model.show()
-        lst = st.split('|')
-        lst_new = []
-        for i in range(len(lst)):
-            if lst[i].find('===') == -1 and lst[i].find("----") == -1:
-                lst_new.append(lst[i])
-
-        self.root.ids.garden_screen.ids.tree_1.background_normal = 'lol.png'
-        self.root.ids.garden_screen.ids.tree_1.background_color = 1, 1, 1, 1
-
-        self.root.ids.garden_screen.ids.tree_2.background_normal = 'lol.png'
-        self.root.ids.garden_screen.ids.tree_2.background_color = 1, 1, 1, 1
-
-        self.root.ids.garden_screen.ids.tree_3.background_normal = 'lol.png'
-        self.root.ids.garden_screen.ids.tree_3.background_color = 1, 1, 1, 1
-
-        self.root.ids.garden_screen.ids.tree_4.background_normal = 'lol.png'
-        self.root.ids.garden_screen.ids.tree_4.background_color = 1, 1, 1, 1
-
-        self.root.ids.garden_screen.ids.tree_5.background_normal = 'lol.png'
-        self.root.ids.garden_screen.ids.tree_5.background_color = 1, 1, 1, 1
-
-        for i in range(len(lst_new)):
-            if lst_new[i].find('Garden bed') != -1:
-                st = lst_new[i].split()
-                num = int(st[2])
-                if num == 1:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_1.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_1.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_1.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_1.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_1.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_1.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_1.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_1.background_normal = ''
-                        error = True
-                        if lst_new[i+2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_1.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_1.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i+2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_1.background_color = 0, 1, 0, 1
-
-                        if lst_new[i+3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_1.background_color = 0, 0, 0, 1
-
-                        if lst_new[i+4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_1.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_1.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_1.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i+7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_1.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_1.background_color = 1, 1, 1, 1
-
-                elif num == 2:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_2.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_2.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_2.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_2.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_2.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_2.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_2.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_2.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_2.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_2.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_2.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_2.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_2.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_2.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_2.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_2.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_2.background_color = 1, 1, 1, 1
-
-                elif num == 3:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_3.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_3.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_3.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_3.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_3.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_3.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_3.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_3.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_3.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_3.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_3.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_3.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_3.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_3.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_3.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_3.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_3.background_color = 1, 1, 1, 1
-
-                elif num == 4:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_4.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_4.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_4.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_4.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_4.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_4.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_4.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_4.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_4.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_4.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_4.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_4.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_4.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_4.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_4.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_4.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_4.background_color = 1, 1, 1, 1
-
-                elif num == 5:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_5.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_5.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_5.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_5.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_5.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_5.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_5.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_5.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_5.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_5.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_5.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_5.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_5.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_5.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_5.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_5.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_5.background_color = 1, 1, 1, 11
-                elif num == 6:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_6.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_6.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_6.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_6.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_6.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_6.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_6.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_6.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_6.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_6.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_6.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_6.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_6.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_6.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_6.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_6.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_6.background_color = 1, 1, 1, 1
-
-                elif num == 7:
-                        error = False
-                        if lst_new[i + 1] == 'tomato':
-                            self.root.ids.garden_screen.ids.cell_7.background_normal = 'tomato.png'
-                            self.root.ids.garden_screen.ids.cell_7.background_color = 1, 1, 1, 1
-                        elif lst_new[i + 1] == 'potato':
-                            self.root.ids.garden_screen.ids.cell_7.background_normal = 'potato.png'
-                            self.root.ids.garden_screen.ids.cell_7.background_color = 1, 1, 1, 1
-                        elif lst_new[i + 1] == 'pepper':
-                            self.root.ids.garden_screen.ids.cell_7.background_normal = 'pepper.png'
-                            self.root.ids.garden_screen.ids.cell_7.background_color = 1, 1, 1, 1
-                        else:
-                            self.root.ids.garden_screen.ids.cell_7.background_color = .45, .39, .28, 1
-                            self.root.ids.garden_screen.ids.cell_7.background_normal = ''
-                            error = True
-                            if lst_new[i + 2] == 'Weed+':
-                                self.root.ids.garden_screen.ids.cell_7.background_normal = 'weed.png'
-                                self.root.ids.garden_screen.ids.cell_7.background_color = 1, 1, 1, 1
-
-                        if not error:
-                            if lst_new[i + 2] == 'Ill+':
-                                self.root.ids.garden_screen.ids.cell_7.background_color = 0, 1, 0, 1
-
-                            if lst_new[i + 3] == 'Pest+':
-                                self.root.ids.garden_screen.ids.cell_7.background_color = 0, 0, 0, 1
-
-                            if lst_new[i + 4] == 'Harvest+':
-                                if lst_new[i + 1] == 'tomato':
-                                    self.root.ids.garden_screen.ids.cell_7.background_normal = 'tomato_harvest.png'
-
-                                elif lst_new[i + 1] == 'potato':
-                                    self.root.ids.garden_screen.ids.cell_7.background_normal = 'potato_harvest.png'
-
-                                elif lst_new[i + 1] == 'pepper':
-                                    self.root.ids.garden_screen.ids.cell_7.background_normal = 'pepper_harvest.png'
-
-                            if lst_new[i + 7] == 'Weed+':
-                                self.root.ids.garden_screen.ids.cell_7.background_normal = 'weed.png'
-                                self.root.ids.garden_screen.ids.cell_7.background_color = 1, 1, 1, 1
-
-                elif num == 8:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_8.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_8.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_8.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_8.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_8.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_8.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_8.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_8.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_8.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_8.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_8.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_8.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_8.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_8.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_8.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_8.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_8.background_color = 1, 1, 1, 1
-
-                elif num == 9:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_9.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_9.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_9.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_9.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_9.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_9.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_9.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_9.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_9.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_9.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_9.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_9.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_9.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_9.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_9.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_9.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_9.background_color = 1, 1, 1, 1
-
-                elif num == 10:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_10.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_10.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_10.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_10.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_10.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_10.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_10.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_10.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_10.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_10.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_10.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_10.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_10.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_10.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_10.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_10.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_10.background_color = 1, 1, 1, 1
-
-                elif num == 11:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_11.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_11.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_11.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_11.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_11.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_11.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_11.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_11.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_11.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_11.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_11.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_11.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_11.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_11.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_11.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_11.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_11.background_color = 1, 1, 1, 1
-
-                elif num == 12:
-                    error = False
-                    if lst_new[i + 1] == 'tomato':
-                        self.root.ids.garden_screen.ids.cell_12.background_normal = 'tomato.png'
-                        self.root.ids.garden_screen.ids.cell_12.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'potato':
-                        self.root.ids.garden_screen.ids.cell_12.background_normal = 'potato.png'
-                        self.root.ids.garden_screen.ids.cell_12.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'pepper':
-                        self.root.ids.garden_screen.ids.cell_12.background_normal = 'pepper.png'
-                        self.root.ids.garden_screen.ids.cell_12.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.cell_12.background_color = .45, .39, .28, 1
-                        self.root.ids.garden_screen.ids.cell_12.background_normal = ''
-                        error = True
-                        if lst_new[i + 2] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_12.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_12.background_color = 1, 1, 1, 1
-
-                    if not error:
-                        if lst_new[i + 2] == 'Ill+':
-                            self.root.ids.garden_screen.ids.cell_12.background_color = 0, 1, 0, 1
-
-                        if lst_new[i + 3] == 'Pest+':
-                            self.root.ids.garden_screen.ids.cell_12.background_color = 0, 0, 0, 1
-
-                        if lst_new[i + 4] == 'Harvest+':
-                            if lst_new[i + 1] == 'tomato':
-                                self.root.ids.garden_screen.ids.cell_12.background_normal = 'tomato_harvest.png'
-
-                            elif lst_new[i + 1] == 'potato':
-                                self.root.ids.garden_screen.ids.cell_12.background_normal = 'potato_harvest.png'
-
-                            elif lst_new[i + 1] == 'pepper':
-                                self.root.ids.garden_screen.ids.cell_12.background_normal = 'pepper_harvest.png'
-
-                        if lst_new[i + 7] == 'Weed+':
-                            self.root.ids.garden_screen.ids.cell_12.background_normal = 'weed.png'
-                            self.root.ids.garden_screen.ids.cell_12.background_color = 1, 1, 1, 1
-
-            if lst_new[i].find('Tree') != -1:
-                st = lst_new[i].split()
-                num = int(st[1])
-                if num == 1:
-                    if lst_new[i + 1] == 'apple':
-                        self.root.ids.garden_screen.ids.tree_1.background_normal = 'apple_little.png'
-                        self.root.ids.garden_screen.ids.tree_1.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'peer':
-                        self.root.ids.garden_screen.ids.tree_1.background_normal = 'peer_little.png'
-                        self.root.ids.garden_screen.ids.tree_1.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.tree_1.background_normal = 'lol.png'
-                        self.root.ids.garden_screen.ids.tree_1.background_color = 1, 1, 1, 1
-
-                    if lst_new[i + 2] == 'Ill+':
-                        self.root.ids.garden_screen.ids.tree_1.background_color = 0, 1, 0, 1
-
-                    if lst_new[i + 3] == 'Pest+':
-                        self.root.ids.garden_screen.ids.tree_1.background_color = 0, 0, 0, 1
-
-                    if lst_new[i + 4] == 'Harvest+':
-                        if lst_new[i + 1] == 'apple':
-                            self.root.ids.garden_screen.ids.tree_1.background_normal = 'apple.png'
-
-                        elif lst_new[i + 1] == 'peer':
-                            self.root.ids.garden_screen.ids.tree_1.background_normal = 'peer.png'
-
-                if num == 2:
-                    if lst_new[i + 1] == 'apple':
-                        self.root.ids.garden_screen.ids.tree_2.background_normal = 'apple_little.png'
-                        self.root.ids.garden_screen.ids.tree_2.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'peer':
-                        self.root.ids.garden_screen.ids.tree_2.background_normal = 'peer_little.png'
-                        self.root.ids.garden_screen.ids.tree_2.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.tree_2.background_normal = 'lol.png'
-                        self.root.ids.garden_screen.ids.tree_2.background_color = 1, 1, 1, 1
-
-                    if lst_new[i + 2] == 'Ill+':
-                        self.root.ids.garden_screen.ids.tree_2.background_color = 0, 1, 0, 1
-
-                    if lst_new[i + 3] == 'Pest+':
-                        self.root.ids.garden_screen.ids.tree_2.background_color = 0, 0, 0, 1
-
-                    if lst_new[i + 4] == 'Harvest+':
-                        if lst_new[i + 1] == 'apple':
-                            self.root.ids.garden_screen.ids.tree_2.background_normal = 'apple.png'
-
-                        elif lst_new[i + 1] == 'peer':
-                            self.root.ids.garden_screen.ids.tree_2.background_normal = 'peer.png'
-
-                if num == 3:
-                    if lst_new[i + 1] == 'apple':
-                        self.root.ids.garden_screen.ids.tree_3.background_normal = 'apple_little.png'
-                        self.root.ids.garden_screen.ids.tree_3.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'peer':
-                        self.root.ids.garden_screen.ids.tree_3.background_normal = 'peer_little.png'
-                        self.root.ids.garden_screen.ids.tree_3.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.tree_3.background_normal = 'lol.png'
-                        self.root.ids.garden_screen.ids.tree_3.background_color = 1, 1, 1, 1
-
-                    if lst_new[i + 2] == 'Ill+':
-                        self.root.ids.garden_screen.ids.tree_3.background_color = 0, 1, 0, 1
-
-                    if lst_new[i + 3] == 'Pest+':
-                        self.root.ids.garden_screen.ids.tree_3.background_color = 0, 0, 0, 1
-
-                    if lst_new[i + 4] == 'Harvest+':
-                        if lst_new[i + 1] == 'apple':
-                            self.root.ids.garden_screen.ids.tree_3.background_normal = 'apple.png'
-
-                        elif lst_new[i + 1] == 'peer':
-                            self.root.ids.garden_screen.ids.tree_3.background_normal = 'peer.png'
-
-                if num == 4:
-                    if lst_new[i + 1] == 'apple':
-                        self.root.ids.garden_screen.ids.tree_4.background_normal = 'apple_little.png'
-                        self.root.ids.garden_screen.ids.tree_4.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'peer':
-                        self.root.ids.garden_screen.ids.tree_4.background_normal = 'peer_little.png'
-                        self.root.ids.garden_screen.ids.tree_4.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.tree_4.background_normal = 'lol.png'
-                        self.root.ids.garden_screen.ids.tree_4.background_color = 1, 1, 1, 1
-
-                    if lst_new[i + 2] == 'Ill+':
-                        self.root.ids.garden_screen.ids.tree_4.background_color = 0, 1, 0, 1
-
-                    if lst_new[i + 3] == 'Pest+':
-                        self.root.ids.garden_screen.ids.tree_4.background_color = 0, 0, 0, 1
-
-                    if lst_new[i + 4] == 'Harvest+':
-                        if lst_new[i + 1] == 'apple':
-                            self.root.ids.garden_screen.ids.tree_4.background_normal = 'apple.png'
-
-                        elif lst_new[i + 1] == 'peer':
-                            self.root.ids.garden_screen.ids.tree_4.background_normal = 'peer.png'
-
-                if num == 5:
-                    if lst_new[i + 1] == 'apple':
-                        self.root.ids.garden_screen.ids.tree_5.background_normal = 'apple_little.png'
-                        self.root.ids.garden_screen.ids.tree_5.background_color = 1, 1, 1, 1
-                    elif lst_new[i + 1] == 'peer':
-                        self.root.ids.garden_screen.ids.tree_5.background_normal = 'peer_little.png'
-                        self.root.ids.garden_screen.ids.tree_5.background_color = 1, 1, 1, 1
-                    else:
-                        self.root.ids.garden_screen.ids.tree_5.background_normal = 'lol.png'
-                        self.root.ids.garden_screen.ids.tree_5.background_color = 1, 1, 1, 1
-
-                    if lst_new[i + 2] == 'Ill+':
-                        self.root.ids.garden_screen.ids.tree_5.background_color = 0, 1, 0, 1
-
-                    if lst_new[i + 3] == 'Pest+':
-                        self.root.ids.garden_screen.ids.tree_5.background_color = 0, 0, 0, 1
-
-                    if lst_new[i + 4] == 'Harvest+':
-                        if lst_new[i + 1] == 'apple':
-                            self.root.ids.garden_screen.ids.tree_5.background_normal = 'apple.png'
-
-                        elif lst_new[i + 1] == 'peer':
-                            self.root.ids.garden_screen.ids.tree_5.background_normal = 'peer.png'
+        info_tree, info_cult = self.model.get_data_about_garden()
+        help = [self.root.ids.garden_screen.ids.tree_1, self.root.ids.garden_screen.ids.tree_2, self.root.ids.garden_screen.ids.tree_3, self.root.ids.garden_screen.ids.tree_4, self.root.ids.garden_screen.ids.tree_5]
+        help_ill = [self.root.ids.garden_screen.ids.tree_ill_1, self.root.ids.garden_screen.ids.tree_ill_2, self.root.ids.garden_screen.ids.tree_ill_3, self.root.ids.garden_screen.ids.tree_ill_4, self.root.ids.garden_screen.ids.tree_ill_5]
+        help_bug = [self.root.ids.garden_screen.ids.tree_bug_1, self.root.ids.garden_screen.ids.tree_bug_2, self.root.ids.garden_screen.ids.tree_bug_3, self.root.ids.garden_screen.ids.tree_bug_4, self.root.ids.garden_screen.ids.tree_bug_5]
+        help_har = [self.root.ids.garden_screen.ids.tree_har_1, self.root.ids.garden_screen.ids.tree_har_2, self.root.ids.garden_screen.ids.tree_har_3, self.root.ids.garden_screen.ids.tree_har_4, self.root.ids.garden_screen.ids.tree_har_5]
+        count = 0
+        for tree in info_tree:
+            count = count + 1
+            if tree.get('Type') == 'pear':
+                if tree.get('Adult'):
+                    help[count - 1].source = 'image/peer.png'
+                else:
+                    help[count - 1].source = 'image/peer_little.png'
+            else:
+                if tree.get('Adult'):
+                    help[count - 1].source = 'image/apple.png'
+                else:
+                    help[count - 1].source = 'image/apple_little.png'
+            if tree.get('Ill'):
+                help_ill[count - 1].source = 'image/ill.png'
+            if tree.get('Pest'):
+                help_bug[count - 1].source = 'image/bug.png'
+            if tree.get('Harvest'):
+                help_har[count - 1].source = 'image/har.png'
+
+        h_c_weed = [self.root.ids.garden_screen.ids.cell_1_weed, self.root.ids.garden_screen.ids.cell_2_weed, self.root.ids.garden_screen.ids.cell_3_weed, self.root.ids.garden_screen.ids.cell_4_weed,  self.root.ids.garden_screen.ids.cell_5_weed, self.root.ids.garden_screen.ids.cell_6_weed]
+        h_c = [self.root.ids.garden_screen.ids.cell_1, self.root.ids.garden_screen.ids.cell_2, self.root.ids.garden_screen.ids.cell_3, self.root.ids.garden_screen.ids.cell_4, self.root.ids.garden_screen.ids.cell_5, self.root.ids.garden_screen.ids.cell_6]
+        h_c_bug = [self.root.ids.garden_screen.ids.cell_1_bug, self.root.ids.garden_screen.ids.cell_2_bug, self.root.ids.garden_screen.ids.cell_3_bug, self.root.ids.garden_screen.ids.cell_4_bug, self.root.ids.garden_screen.ids.cell_5_bug, self.root.ids.garden_screen.ids.cell_6_bug]
+        h_c_har = [self.root.ids.garden_screen.ids.cell_1_har, self.root.ids.garden_screen.ids.cell_2_har, self.root.ids.garden_screen.ids.cell_3_har, self.root.ids.garden_screen.ids.cell_4_har, self.root.ids.garden_screen.ids.cell_5_har, self.root.ids.garden_screen.ids.cell_6_har]
+        h_c_ill = [self.root.ids.garden_screen.ids.cell_1_ill, self.root.ids.garden_screen.ids.cell_2_ill, self.root.ids.garden_screen.ids.cell_3_ill, self.root.ids.garden_screen.ids.cell_4_ill, self.root.ids.garden_screen.ids.cell_5_ill, self.root.ids.garden_screen.ids.cell_6_ill]
+        h_c_w = [self.root.ids.garden_screen.ids.cell_1_w, self.root.ids.garden_screen.ids.cell_2_w, self.root.ids.garden_screen.ids.cell_3_w, self.root.ids.garden_screen.ids.cell_4_w, self.root.ids.garden_screen.ids.cell_5_w, self.root.ids.garden_screen.ids.cell_6_w]
+        h_c_water = [self.root.ids.garden_screen.ids.cell_1_water, self.root.ids.garden_screen.ids.cell_2_water, self.root.ids.garden_screen.ids.cell_3_water, self.root.ids.garden_screen.ids.cell_4_water, self.root.ids.garden_screen.ids.cell_5_water, self.root.ids.garden_screen.ids.cell_6_water]
+        h_c_f = [self.root.ids.garden_screen.ids.cell_1_f, self.root.ids.garden_screen.ids.cell_2_f, self.root.ids.garden_screen.ids.cell_3_f, self.root.ids.garden_screen.ids.cell_4_f, self.root.ids.garden_screen.ids.cell_5_f, self.root.ids.garden_screen.ids.cell_6_f]
+        h_c_fer = [self.root.ids.garden_screen.ids.cell_1_fer, self.root.ids.garden_screen.ids.cell_2_fer, self.root.ids.garden_screen.ids.cell_3_fer, self.root.ids.garden_screen.ids.cell_4_fer, self.root.ids.garden_screen.ids.cell_5_fer, self.root.ids.garden_screen.ids.cell_6_fer]
+
+        count = 0
+        for cell in info_cult:
+            count = count + 1
+            if cell.get('Weed'):
+                h_c_weed[count - 1].source = 'image/weed.png'
+            if not cell.get('Plant'):
+                h_c[count - 1].source = 'image/soil.png'
+            else:
+                h_c_w[count - 1].source = 'image/water.png'
+                h_c_water[count - 1].text = str(cell.get('Water'))
+                h_c_f[count - 1].source = 'image/fer.png'
+                h_c_fer[count - 1].text = str(cell.get('Fertiliser'))
+                if cell.get('Ill'):
+                    h_c_ill[count - 1].source = 'image/ill.png'
+                if cell.get('Pest'):
+                    h_c_bug[count - 1].source = 'image/bug.png'
+                if cell.get('Harvest'):
+                    h_c_har[count - 1].source = 'image/har.png'
+                if cell.get('Type') == 'potato':
+                    h_c[count - 1].source = 'image/potato.png'
+                elif cell.get('Type') == 'tomato':
+                    h_c[count - 1].source = 'image/tomato.png'
+                else:
+                    h_c[count - 1].source = 'image/pepper.png'
 
 
 class MainScreen(Screen):

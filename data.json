@@ -1,12 +1,12 @@
 {
-  "money": 314,
-  "garden_bed_kol": 7,
-  "day": 2,
-  "weather": "rain",
+  "money": 379,
+  "garden_bed_kol": 4,
+  "day": 7,
+  "weather": "hurricane",
   "tree": [
     {
       "ill": false,
-      "pest": false,
+      "pest": true,
       "life_day": 0,
       "harvest_day": 0,
       "type": "peer"
@@ -19,36 +19,23 @@
       "HERB": {
         "ill": false,
         "pest": false,
-        "life_day": 0,
-        "harvest_day": 0,
+        "life_day": 10,
+        "harvest_day": 5,
         "type": "tomato",
         "water": 100,
         "level_fertilization": 100
       }
     },
     {
-      "DAY": 0,
-      "WEED": false,
-      "HERB": {
-        "ill": false,
-        "pest": false,
-        "life_day": 0,
-        "harvest_day": 0,
-        "type": "potato",
-        "water": 100,
-        "level_fertilization": 100
-      }
-    },
-    {
-      "DAY": 0,
-      "WEED": false,
+      "DAY": 3,
+      "WEED": true,
       "HERB": false
     },
     {
       "DAY": 0,
-      "WEED": false,
+      "WEED": true,
       "HERB": {
-        "ill": false,
+        "ill": true,
         "pest": false,
         "life_day": 0,
         "harvest_day": 0,
@@ -63,24 +50,6 @@
       "HERB": {
         "ill": false,
         "pest": true,
-        "life_day": 0,
-        "harvest_day": 0,
-        "type": "tomato",
-        "water": 100,
-        "level_fertilization": 100
-      }
-    },
-    {
-      "DAY": 0,
-      "WEED": false,
-      "HERB": false
-    },
-    {
-      "DAY": 0,
-      "WEED": false,
-      "HERB": {
-        "ill": false,
-        "pest": false,
         "life_day": 0,
         "harvest_day": 0,
         "type": "pepper",

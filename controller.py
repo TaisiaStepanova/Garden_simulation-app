@@ -6,7 +6,7 @@ class Controller:
         self.view = view
 
     def add_garden_bed(self, status):
-        if self.model.garden_bed_kol() >= 12:
+        if self.model.garden_bed_kol() >= 6:
             status.text = 'Слишком много грядок!'
         else:
             st = self.model.add_garden_bed()
