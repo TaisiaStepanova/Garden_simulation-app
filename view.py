@@ -39,7 +39,9 @@ class Garden(MDApp):
         self.root.ids.main_screen.ids.day.title = "День: " + str(self.model.day())
 
     def show_data(self):
+        print("sh data")
         info_tree, info_cult = self.model.get_data_about_garden()
+        print(info_tree)
         help = [self.root.ids.garden_screen.ids.tree_1, self.root.ids.garden_screen.ids.tree_2, self.root.ids.garden_screen.ids.tree_3, self.root.ids.garden_screen.ids.tree_4, self.root.ids.garden_screen.ids.tree_5]
         help_ill = [self.root.ids.garden_screen.ids.tree_ill_1, self.root.ids.garden_screen.ids.tree_ill_2, self.root.ids.garden_screen.ids.tree_ill_3, self.root.ids.garden_screen.ids.tree_ill_4, self.root.ids.garden_screen.ids.tree_ill_5]
         help_bug = [self.root.ids.garden_screen.ids.tree_bug_1, self.root.ids.garden_screen.ids.tree_bug_2, self.root.ids.garden_screen.ids.tree_bug_3, self.root.ids.garden_screen.ids.tree_bug_4, self.root.ids.garden_screen.ids.tree_bug_5]
@@ -59,10 +61,16 @@ class Garden(MDApp):
                     help[count - 1].source = 'image/apple_little.png'
             if tree.get('Ill'):
                 help_ill[count - 1].source = 'image/ill.png'
+            else:
+                help_ill[count - 1].source = 'image/lol.png'
             if tree.get('Pest'):
                 help_bug[count - 1].source = 'image/bug.png'
+            else:
+                help_bug[count - 1].source = 'image/lol.png'
             if tree.get('Harvest'):
                 help_har[count - 1].source = 'image/har.png'
+            else:
+                help_har[count - 1].source = 'image/lol.png'
 
         h_c_weed = [self.root.ids.garden_screen.ids.cell_1_weed, self.root.ids.garden_screen.ids.cell_2_weed, self.root.ids.garden_screen.ids.cell_3_weed, self.root.ids.garden_screen.ids.cell_4_weed,  self.root.ids.garden_screen.ids.cell_5_weed, self.root.ids.garden_screen.ids.cell_6_weed]
         h_c = [self.root.ids.garden_screen.ids.cell_1, self.root.ids.garden_screen.ids.cell_2, self.root.ids.garden_screen.ids.cell_3, self.root.ids.garden_screen.ids.cell_4, self.root.ids.garden_screen.ids.cell_5, self.root.ids.garden_screen.ids.cell_6]
@@ -79,6 +87,8 @@ class Garden(MDApp):
             count = count + 1
             if cell.get('Weed'):
                 h_c_weed[count - 1].source = 'image/weed.png'
+            else:
+                h_c_weed[count - 1].source = 'image/lol.png'
             if not cell.get('Plant'):
                 h_c[count - 1].source = 'image/soil.png'
             else:
@@ -88,10 +98,16 @@ class Garden(MDApp):
                 h_c_fer[count - 1].text = str(cell.get('Fertiliser'))
                 if cell.get('Ill'):
                     h_c_ill[count - 1].source = 'image/ill.png'
+                else:
+                    h_c_ill[count - 1].source = 'image/lol.png'
                 if cell.get('Pest'):
                     h_c_bug[count - 1].source = 'image/bug.png'
+                else:
+                    h_c_bug[count - 1].source = 'image/lol.png'
                 if cell.get('Harvest'):
                     h_c_har[count - 1].source = 'image/har.png'
+                else:
+                    h_c_har[count - 1].source = 'image/lol.png'
                 if cell.get('Type') == 'potato':
                     h_c[count - 1].source = 'image/potato.png'
                 elif cell.get('Type') == 'tomato':
